@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package qa;
+
+service QuaAndAns {
+  rpc BuildModel (QARequest) returns (QAReply) {}
+  rpc GetTop5 (QARequest2) returns (QAReply2) {}
+}
+
+message QARequest {
+  string filepath = 1;
+}
+
+message QAReply {
+  bool isOk = 1;
+}
+
+message QARequest2 {
+  string content = 1;
+}
+
+message QAReply2 {
+  int32 index = 1;
+}
+
+message wordVector {
+  string word = 1;
+  repeated float score = 2;
+}
+
+message wordVectorList{
+  repeated wordVector wVec= 1;
+}
+
+message sentenceVector {
+  repeated float score = 1;
+}
+
+message sentenceVectorList{
+  repeated sentenceVector sVec = 1;
+}
+
+message docFreqVector {
+  string word = 1;
+  float freq = 2;
+}
+
+message docFreqVectorList{
+  repeated docFreqVector idf = 1;
+}
+
+message docIdVector {
+  string word = 1;
+  repeated int32 docId = 2;
+}
+
+message docIdVectorList{
+  repeated docIdVector dIdVec = 1;
+}
