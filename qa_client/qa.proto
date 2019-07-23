@@ -1,0 +1,32 @@
+
+syntax = "proto3";
+
+package qa;
+
+// The greeting service definition.
+service QuaAndAns {
+  // Sends a greeting
+  rpc BuildModel (QARequest) returns (QAReply) {}
+  rpc GetTop5 (QARequest2) returns (QAReply2) {}
+}
+
+// The request message containing the user's name.
+message QARequest {
+  string filepath = 1;
+}
+
+// The response message containing the greetings
+message QAReply {
+  bool isOk = 1;
+}
+
+// The request message containing the user's name.
+message QARequest2 {
+  string content = 1;
+}
+
+// The response message containing the greetings
+message QAReply2 {
+  int32 index = 1;
+}
+
